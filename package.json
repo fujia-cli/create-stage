@@ -1,9 +1,12 @@
 {
   "name": "create-stage",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "description": "Alias for stage, so you can use npm init stage demos.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rimraf lib && tsc",
     "prepare": "husky install",
