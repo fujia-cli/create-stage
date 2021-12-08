@@ -1,0 +1,47 @@
+{
+  "name": "create-stage",
+  "version": "0.1.0",
+  "description": "Alias for stage, so you can use npm init stage demos.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib && tsc",
+    "prepare": "husky install",
+    "prerelease": "npm run build",
+    "release": "sh scripts/release.sh",
+    "test": "jest"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fujia-cli/create-stage.git"
+  },
+  "keywords": [
+    "stage",
+    "cli",
+    "alias",
+    "nodejs"
+  ],
+  "author": "fujia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fujia-cli/create-stage/issues"
+  },
+  "homepage": "https://github.com/fujia-cli/create-stage#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
+    "commitlint": "^15.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.3",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  }
+}
