@@ -21,17 +21,7 @@ const spawn = (command, args, options = {}) => {
 const execFilePath = path.resolve(__dirname, "../node_modules/@fujia/cli-core/bin/index.js");
 
 if (pathExistSync(execFilePath)) {
-  const child = spawn("node", [execFilePath, "init"], {
-    cwd: process.cwd(),
+  cp.execFileSync(execFilePath, ["init", ...args], {
     stdio: "inherit",
-  });
-
-  child.on("error", (err) => {
-    console.error(err);
-    process.exit(1);
-  });
-
-  child.on("exit", (err) => {
-    process.exit(err);
   });
 }
