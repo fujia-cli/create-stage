@@ -21,10 +21,11 @@ const child = spawn("npx", ["stage", "init", ...args], {
 });
 
 child.on("error", (err) => {
-  console.error(err);
+  console.error("command failed: ", err);
   process.exit(1);
 });
 
 child.on("exit", (err) => {
+  console.log("command exited: ", err);
   process.exit(err);
 });
