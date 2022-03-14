@@ -3,9 +3,7 @@
 "use strict";
 
 const cp = require("child_process");
-const path = require("path");
 const { argv } = require("process");
-const { pathExistSync } = require("@fujia/check-path");
 
 const isWin32 = process.platform === "win32";
 const args = argv.slice(2);
@@ -18,10 +16,15 @@ const spawn = (command, args, options = {}) => {
   return cp.spawn(cmd, cmdArgs, options);
 };
 
-const execFilePath = path.resolve(__dirname, "../node_modules/@fujia/cli-core/bin/index.js");
+const child = spawn("npx", ["stage", "init", ...args], {
+  stdio: "inherit",
+});
 
-if (pathExistSync(execFilePath)) {
-  cp.execFileSync(execFilePath, ["init", ...args], {
-    stdio: "inherit",
-  });
-}
+child.on("error", (err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+child.on("exit", (err) => {
+  process.exit(err);
+});
