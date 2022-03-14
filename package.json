@@ -1,6 +1,6 @@
 {
   "name": "create-stage",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Alias for stage, so you can use npm init stage demos.",
   "bin": {
     "create-stage": "./bin/create-stage.js"
