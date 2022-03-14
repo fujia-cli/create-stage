@@ -2,7 +2,9 @@
   "name": "create-stage",
   "version": "0.2.0",
   "description": "Alias for stage, so you can use npm init stage demos.",
-  "bin": "./bin/create-stage.js",
+  "bin": {
+    "create-stage": "./bin/create-stage.js"
+  },
   "engines": {
     "node": ">=14.0.0"
   },
